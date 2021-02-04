@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Entities\Db" />
+      <Folder Include="Entities\Io" />
+      <Folder Include="Entities\Runtime" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="LiteDB.Core" Version="2.0.4" />
+    </ItemGroup>
+
+</Project>
