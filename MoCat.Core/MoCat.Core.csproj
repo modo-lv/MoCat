@@ -6,6 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <Folder Include="Db" />
       <Folder Include="Entities\Db" />
       <Folder Include="Entities\Io" />
       <Folder Include="Entities\Runtime" />
