@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using MoCat.Core.Wiring;
 using IStartup = MoCat.Core.Wiring.IStartup;
@@ -15,10 +16,13 @@ namespace MoCat.Web {
     public static void Main() {
       Bootstrap();
 
-      IWebHost host = new WebHostBuilder()
-        .UseKestrel()
-        .UseContentRoot(Directory.GetCurrentDirectory())
-        .UseStartup<ServerSetup>()
+      IHost host = Host
+        .CreateDefaultBuilder()
+        .ConfigureWebHostDefaults(server => {
+          server
+            .UseContentRoot(Directory.GetCurrentDirectory())
+            .UseStartup<ServerSetup>();
+        })
         .Build();
 
       // Run startup initializations
@@ -26,7 +30,7 @@ namespace MoCat.Web {
         IServiceProvider services = scope.ServiceProvider;
 
         var logger = services.GetRequiredService<ILogger<Program>>();
-        logger.LogInformation($"Base path: {Running.BaseDir}");
+        logger.LogInformation("User data: [{Dir}]", Running.BaseDir);
 
         var initSvc = services.GetRequiredService<IStartup>();
 
@@ -36,6 +40,7 @@ namespace MoCat.Web {
       // Run host
       host.Run();
     }
+
 
     /// <summary>
     /// Earliest crucial requirements.

@@ -6,7 +6,7 @@ namespace MoCat.Core.Wiring {
     public static void AddTo(IServiceCollection services) {
       services.AddSingleton<IStartup, Startup>();
       services.AddSingleton<IFileSystem, FileSystem>();
-      services.AddSingleton<IDb, Db>();
+      services.AddSingleton<IDbConnection, DbConnection>();
     }
   }
 }

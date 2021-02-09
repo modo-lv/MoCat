@@ -4,7 +4,7 @@ namespace MoCat.Core.Wiring {
   /// <summary>
   /// Pre-request DB access instance.
   /// </summary>
-  public class Db : LiteDatabase, IDb {
-    public Db() : base(Running.DbPath) { }
+  public class DbConnection : LiteDatabase, IDbConnection {
+    public DbConnection() : base(Running.DbPath) { }
   }
 }
