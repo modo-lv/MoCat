@@ -9,7 +9,7 @@ namespace MoCat.Web {
     /// <summary>
     /// Dependency setup.
     /// </summary>
-    public void ConfigureServices(IServiceCollection services) {
+    public virtual void ConfigureServices(IServiceCollection services) {
       CoreServices.AddTo(services);
 
       services
