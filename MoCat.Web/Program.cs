@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -13,16 +14,15 @@ namespace MoCat.Web {
     /// <summary>
     /// Main entry/start point of the web app.
     /// </summary>
-    public static void Main() {
+    public static void Main(String[] args) {
       Bootstrap();
 
       IHost host = Host
         .CreateDefaultBuilder()
-        .ConfigureWebHostDefaults(server => {
-          server
-            .UseContentRoot(Directory.GetCurrentDirectory())
-            .UseStartup<ServerSetup>();
-        })
+        .ConfigureWebHostDefaults(_ => _
+          .UseContentRoot(Directory.GetCurrentDirectory())
+          .UseStartup<ServerSetup>()
+        )
         .Build();
 
       // Run startup initializations

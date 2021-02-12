@@ -10,6 +10,6 @@ namespace MoCat.Core.Components.SanityChecks {
     /// </summary>
     /// <param name="checks">Checks to run.</param>
     /// <returns>List of sanity checks that have failed.</returns>
-    ISet<SanityCheckKind> Run(IEnumerable<SanityCheckKind> checks);
+    ISet<SanityCheckKind> Run(params SanityCheckKind[] checks);
   }
 }

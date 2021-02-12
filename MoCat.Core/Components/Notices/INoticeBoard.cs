@@ -26,6 +26,15 @@ namespace MoCat.Core.Components.Notices {
       }
       return exists ?? notice;
     }
+
+    /// <summary>
+    /// Add a new transient notice with a given message to this notice board.
+    /// </summary>
+    /// <param name="message">Message of the notice.</param>
+    /// <returns>Added notice.</returns>
+    Notice Add(String message) {
+      return this.Add(new Notice(message));
+    }
     
     /// <summary>
     /// Remove (and return) all non-named notices from the board.

@@ -33,7 +33,7 @@ namespace MoCat.Core.Components.SanityChecks {
 
     
     /// <inheritdoc />
-    public ISet<SanityCheckKind> Run(IEnumerable<SanityCheckKind> checks) => 
+    public ISet<SanityCheckKind> Run(params SanityCheckKind[] checks) => 
       checks.Where(check => !this.Runners[check].Invoke()).ToHashSet();
   }
 }

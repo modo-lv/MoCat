@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using MoCat.Core.Wiring;
+using MoCat.Web.Components.Filters;
 
 namespace MoCat.Web {
   public class ServerSetup {
@@ -19,6 +20,7 @@ namespace MoCat.Web {
           .AddConsole()
           .AddDebug()
         );
+      services.AddMvc(cfg => cfg.Filters.Add<InitSanityCheckFilter>());
       services.AddRazorPages();
     }
 
