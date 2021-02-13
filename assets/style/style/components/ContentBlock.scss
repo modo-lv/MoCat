@@ -1,0 +1,119 @@
+﻿/// <reference path = "../variables.scss">
+
+$content-block-background: #FFF;
+$content-block-border: 2px solid #007399;
+$content-header-footer-border: 1px solid #EAEAEA;
+$content-block-text-shadow: $dark-text-shadow;
+
+.content-block {
+	background: $content-block-background;
+	border: $content-block-border;
+
+	td.disabled {
+		background: $main-background;
+	}
+
+	caption, header, footer, .footer {
+		border: $content-header-footer-border;
+		background: $main-background;
+		padding: $inner-padding;
+	}
+
+	caption, header {
+		border-top-left-radius: $default-border-radius;
+		border-top-right-radius: $default-border-radius;
+		border-bottom: 1px solid #46575E;
+		padding-bottom: $inner-padding * 1.5;
+
+		h2 {
+			font-size: larger;
+			margin: 0 $inner-spacing;
+			text-align: left;
+			text-shadow: $content-block-text-shadow;
+
+			&.with-buttons {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+
+				.caption {
+					flex-grow: 1;
+					margin-right: $default-spacing;
+				}
+
+				button {
+					padding-top: 0;
+					padding-bottom: 0;
+				}
+			}
+		}
+	}
+}
+
+article.content-block {
+	border-radius: $default-border-radius;
+
+	> .content {
+		border-bottom: 1px solid #838685;
+		padding: $inner-padding;
+	}
+
+	footer {
+		border-bottom-left-radius: $default-border-radius;
+		border-bottom-right-radius: $default-border-radius;
+	}
+}
+
+table.content-block {
+	border-bottom-left-radius: $default-border-radius;
+	border-bottom-right-radius: $default-border-radius;
+
+	tr:last-of-type {
+		:first-child {
+			border-bottom-left-radius: $default-border-radius;
+		}
+
+		:last-child {
+			border-bottom-right-radius: $default-border-radius;
+		}
+	}
+
+	tr.header {
+		background: $table-header-background;
+	}
+
+	tr.footer {
+		background: $main-background;
+	}
+
+	tr.header th {
+		background-image: $th-background-color;
+		color: #FFF;
+		text-align: center;
+	}
+
+	&.with-caption {
+		border-top: none;
+
+		caption {
+			border: $content-block-border;
+			border-bottom: none;
+		}
+
+		td, th {
+			&:first-child {
+				border-left: none;
+			}
+
+			&:last-child {
+				border-right: none;
+			}
+		}
+
+		tr:last-child {
+			td, th {
+				border-bottom: none;
+			}
+		}
+	}
+}

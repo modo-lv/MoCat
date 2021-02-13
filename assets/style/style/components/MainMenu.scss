@@ -1,0 +1,48 @@
+﻿/// <reference path = "../variables.scss">
+
+nav {
+	display: flex;
+	font-weight: bold;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+	.column {
+		display: flex;
+		flex-direction: column;
+		margin: $inner-spacing;
+		background: $shade;
+		border-radius: $default-border-radius;
+		padding-bottom: $inner-padding;
+
+		ul {
+			margin: 0;
+			padding: 0;
+			display: block;
+
+			li {
+				display: block;
+
+				a {
+					padding: $menu-item-padding;
+					display: block;
+					width: 100%;
+					height: 100%;
+
+					& + a {
+						padding-top: 0;
+					}
+
+					&:hover {
+						background: $menu-hover-background;
+					}
+				}
+			}
+		}
+	}
+
+	.column .caption {
+		margin: $inner-spacing;
+		font-size: 10pt;
+		font-style: italic;
+	}
+}

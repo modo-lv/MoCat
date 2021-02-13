@@ -1,0 +1,111 @@
+/* open-sans-regular - latin */
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("/style/fonts/open-sans-v18-latin-regular.woff2") format("woff2"), url("/style/fonts/open-sans-v18-latin-regular.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* open-sans-700 - latin */
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  src: local(""), url("/style/fonts/open-sans-v18-latin-700.woff2") format("woff2"), url("/style/fonts/open-sans-v18-latin-700.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* open-sans-700italic - latin */
+@font-face {
+  font-family: "Open Sans";
+  font-style: italic;
+  font-weight: 700;
+  src: local(""), url("/style/fonts/open-sans-v18-latin-700italic.woff2") format("woff2"), url("/style/fonts/open-sans-v18-latin-700italic.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+body, table, input, select, textarea, button {
+  font-family: "Trebuchet MS", "Open Sans", sans-serif;
+  font-size: medium;
+}
+
+input, button, select, textarea {
+  border-radius: 5px;
+}
+
+body, table, input, select, textarea, button {
+  font-family: "Trebuchet MS", "Open Sans", sans-serif;
+  font-size: medium;
+}
+
+input, button, select, textarea {
+  border-radius: 5px;
+}
+
+body {
+  background: #2c96c6 url("/style/images/background.png");
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  margin: 0.5rem;
+}
+
+main {
+  border-radius: 5px;
+  background: #dbdbdb;
+  margin-left: 0.5rem;
+  border: 1px solid #efefef;
+  box-shadow: 0 0 0 1px #068;
+  padding: 0.5rem;
+}
+main > h2 {
+  margin-top: 0;
+}
+
+body, table, input, select, textarea, button {
+  font-family: "Trebuchet MS", "Open Sans", sans-serif;
+  font-size: medium;
+}
+
+input, button, select, textarea {
+  border-radius: 5px;
+}
+
+header {
+  color: white;
+}
+header a {
+  color: white;
+  text-decoration: none;
+}
+header > nav {
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  padding: 0.5em 0;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 0 1px #068;
+}
+header > nav + nav {
+  margin-top: 0.25em;
+}
+header > nav ul {
+  padding: 0;
+  display: block;
+  margin: 0;
+}
+header > nav ul li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+header > nav ul li a {
+  min-width: 10em;
+  padding: 0.5rem;
+}
+header > nav ul li a.active {
+  background: linear-gradient(to top, #013156 0%, rgba(1, 49, 86, 0.5) 100%);
+}
+header > nav ul li a:hover {
+  background: linear-gradient(to top, rgba(1, 49, 86, 0.5) 0%, rgba(1, 49, 86, 0.25) 100%);
+}
+
+/*# sourceMappingURL=main.css.map */

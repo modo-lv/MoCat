@@ -1,0 +1,12 @@
+$default-border-radius: 5px;
+$main-spacing: 0.5rem;
+$main-outline: 0 0 0 1px #068;
+
+body, table, input, select, textarea, button {
+  font-family: "Trebuchet MS", "Open Sans", sans-serif;
+  font-size: medium;
+}
+
+input, button, select, textarea {
+  border-radius: $default-border-radius;
+}

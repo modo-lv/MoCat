@@ -1,0 +1,59 @@
+/// <reference path = "variables.scss">
+
+body {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	background: $background;
+}
+
+#Page {
+	text-align: left;
+	display: inline-block;
+
+
+	> header {
+		display: flex;
+		flex-direction: column;
+		background: $header-background-color;
+		align-items: center;
+		padding: $inner-spacing;
+		color: $menu-default-color;
+		text-shadow: $header-text-shadow;
+
+		a[href] {
+			color: $menu-default-color;
+		}
+
+		.row {
+			display: flex;
+			flex-direction: row;
+		}
+
+		h1, nav > ul {
+			background: $shade;
+			border-radius: $default-border-radius;
+			margin: $inner-spacing;
+			padding: $inner-padding;
+		}
+
+		h1 {
+			padding: $inner-padding*2;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			text-align: center;
+
+			a:hover {
+				background: $menu-hover-background;
+			}
+		}
+	}
+
+
+	main {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+}

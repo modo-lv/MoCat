@@ -1,0 +1,46 @@
+@import "_globals.scss";
+
+header {
+  color: white;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  & > nav {
+    background: rgba(#000, 0.25);
+    border-radius: $default-border-radius;
+    padding: 0.5em 0;
+    display: flex;
+    flex-direction: column;
+    box-shadow: $main-outline;
+
+    & + nav {
+      margin-top: 0.25em;
+    }
+
+    ul {
+      padding: 0;
+      display: block;
+      margin: 0;
+
+      li {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        a {
+          min-width: 10em;
+          padding: 0.5rem;
+          $color: #013156;
+          &.active {
+            background: linear-gradient(to top, rgba($color, 1) 0%, rgba($color, 0.5) 100%);
+          }
+          &:hover {
+            background: linear-gradient(to top, rgba($color, 0.5) 0%, rgba($color, 0.25) 100%);
+          }
+        }
+      }
+    }
+  }
+}

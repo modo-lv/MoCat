@@ -1,0 +1,22 @@
+@import "_globals.scss";
+
+body {
+  background: #2c96c6 url("/style/images/background.png");
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  margin: $main-spacing;
+}
+
+main {
+  border-radius: $default-border-radius;
+  background: #dbdbdb;
+  margin-left: $main-spacing;
+  border: 1px solid #efefef;
+  box-shadow: $main-outline;
+  padding: $main-spacing;
+
+  & > h2 {
+    margin-top: 0;
+  }
+}

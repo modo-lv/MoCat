@@ -1,0 +1,65 @@
+﻿@import "fonts.scss";
+@import "variables.scss";
+@import "globals.scss";
+@import "page.scss";
+@import "components/MainMenu.scss";
+@import "components/ContentBlock.scss";
+@import "components/OrderCard.scss";
+
+#CoinOverview {
+	border-spacing: 0;
+}
+
+.ProfitThisMonth, .Owned, .NoLossPrice {
+font-size: smaller;
+}
+
+article.order {
+
+	&.buy {
+		.existing {
+			background: rgba(#cfe2f3, 0.33);
+		}
+
+		.new {
+			background: #cfe2f3;
+		}
+	}
+
+	&.sell {
+		.existing {
+			background: rgba(#fff2cc, 0.33);
+		}
+
+		.new {
+			background: #fff2cc;
+		}
+
+		.price {
+			font-size: smaller;
+		}
+	}
+
+	+ article.order {
+		margin-top: 0.25em;
+	}
+
+	> div {
+		display: flex;
+		flex-direction: column;
+
+		& + div.new {
+			border-top: 1px solid black;
+		}
+	}
+
+	h4 {
+		margin: 0;
+	}
+
+	.id {
+		font-size: xx-small;
+	}
+
+	border: 1px solid black;
+}

@@ -5,16 +5,34 @@
 <html lang="en">
 <head>
   <title>@(Model?.Title ?? "")</title>
+
+  <link rel="stylesheet" href="/main.css"/>
 </head>
 <body>
 <header>
   <partial name="_NoticeBoard"/>
-  <nav>
-    <a asp-page="Index">Home</a>
-    @if (User.IsAuthenticated()) {
-      <a asp-page="Auth/Logout">Logout</a>
-    }
+  <nav aria-label="Main menu">
+    <ul>
+      @if (User.IsAuthenticated()) {
+        <li>
+          <a active-in-page="/Index" asp-page="Index">Home</a>
+        </li>
+        <li>
+          <a asp-page="/Auth/Logout">Logout</a>
+        </li>
+      }
+      else {
+        <li>
+          <a active-in-page="/Auth/Login" asp-page="/Auth/Login">Login</a>
+        </li>
+      }
+    </ul>
   </nav>
+  @if (User.IsAuthenticated()) {
+    <nav aria-label="Owners">
+      Owners
+    </nav>
+  }
 </header>
 <main>
   @RenderBody()

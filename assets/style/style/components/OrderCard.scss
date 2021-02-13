@@ -1,0 +1,41 @@
+﻿/// <reference path = "../variables.scss">
+
+.OrderCard {
+	$buy-color: #cfe2f3;
+	$sell-color: #fff2cc;
+	$trailing-stop-color: #d9d2e9;
+	$open-alpha: 1;
+	$new-alpha: 0.25;
+
+	padding: $inner-padding;
+	display: flex;
+	flex-direction: row;
+
+	span {
+		flex-grow: 1;
+	}
+
+	&.New {
+		font-weight: bold;
+	}
+
+	&.Buy {
+		background: rgba($buy-color, $open-alpha);
+
+		&.Closed {
+			background: rgba($buy-color, $new-alpha);
+		}
+	}
+
+	&.Sell {
+		background: rgba($sell-color, $open-alpha);
+
+		&.TrailingStopLimit {
+			background: rgba($trailing-stop-color, $open-alpha);
+		}
+
+		&.Closed {
+			background: rgba($sell-color, $new-alpha);
+		}
+	}
+}

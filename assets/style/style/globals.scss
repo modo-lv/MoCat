@@ -1,0 +1,141 @@
+/// <reference path = "variables.scss">
+
+* {
+	box-sizing: border-box;
+}
+
+body, table, input, select, textarea, button {
+	font-family: "Trebuchet MS", $default-font, sans-serif;
+	font-size: medium;
+}
+
+table {
+	//border-collapse: collapse;
+	border-spacing: 0;
+
+	th {
+		white-space: nowrap;
+		text-align: center;
+	}
+
+	td {
+		p:first-child {
+			margin-top: 0;
+		}
+		p:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	td, th {
+		vertical-align: middle;
+		border-bottom: $default-table-border;
+		border-right: $default-table-border;
+		padding: $inner-padding;
+
+		&.orders {
+			padding: 0;
+		}
+
+		&:first-child {
+			border-left: $default-table-border;
+		}
+	}
+
+	tr:first-child {
+		td, th {
+			border-top: $default-table-border;
+		}
+	}
+}
+
+.numeric, .percent {
+	text-align: right;
+	white-space: nowrap;
+}
+
+input[type=text] {
+	&.number {
+		text-align: right;
+	}
+
+	&.tiny {
+		width: 2em;
+	}
+	&.short {
+		width: 3.5em;
+	}
+}
+
+.bold {
+	font-weight: bold;
+}
+
+a[href] {
+	color: $link-color;
+	text-decoration: none;
+}
+
+img {
+	vertical-align: middle;
+}
+
+tr, td, th {
+	&.loss {
+		background: #f4c7c3;
+
+		&.subtle {
+			background: inherit;
+			color: #85200c;
+		}
+	}
+
+	&.profit {
+		background: #b7e1cd;
+
+		&.subtle {
+			background: inherit;
+			color: #0b8043;
+		}
+	}
+}
+
+.centered {
+	text-align: center;
+}
+
+.no-padding {
+	padding: 0;
+}
+
+
+footer.buttons, .footer.buttons {
+	text-align: right;
+}
+
+
+button, a.button, input[type=button], input[type=submit], input[type=reset] {
+	display: inline-block;
+	background: linear-gradient(to top, #c2c3c2 0%,#fdfdfd 100%);
+	border: 1px solid #666;
+	border-radius: $default-border-radius;
+	padding: 0.4em;
+	text-shadow: $dark-text-shadow;
+	font-weight: bold;
+	color: #000;
+	cursor: default;
+
+	&:not([disabled]) {
+		&:hover {
+			background: linear-gradient(to top, #e8e8e8 0%, #fefefe 100%);
+		}
+
+		&:active {
+			background: linear-gradient(to bottom, #c2c3c2 0%,#fdfdfd 100%);
+		}
+	}
+
+	&[disabled] {
+		opacity: 0.5;
+	}
+}
