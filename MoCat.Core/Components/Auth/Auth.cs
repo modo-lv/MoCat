@@ -35,9 +35,7 @@ namespace MoCat.Core.Components.Auth {
 
     /// <inheritdoc />
     public ClaimsPrincipal CreateClaimsPrincipal(String authType) {
-      Claim[] claims = {
-        new(ClaimTypes.Name, "Authenticated")
-      };
+      Claim[] claims = Array.Empty<Claim>();
       var identity = new ClaimsIdentity(claims, authType);
       return new ClaimsPrincipal(identity);
     } 

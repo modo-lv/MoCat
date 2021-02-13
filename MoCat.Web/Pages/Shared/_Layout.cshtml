@@ -1,4 +1,5 @@
-﻿@model MoCat.Web.Infrastructure.IPageWithTitle
+﻿@using MoCat.Core.Components.Auth
+@model MoCat.Web.Infrastructure.IPageWithTitle
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +11,9 @@
   <partial name="_NoticeBoard"/>
   <nav>
     <a asp-page="Index">Home</a>
-    <a asp-page="Auth/Logout">Logout</a>
+    @if (User.IsAuthenticated()) {
+      <a asp-page="Auth/Logout">Logout</a>
+    }
   </nav>
 </header>
 <main>
