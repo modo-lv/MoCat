@@ -31,7 +31,7 @@ namespace MoCat.Web.Components.Filters {
       IEnumerable<Attribute> attributes =
         ((CompiledPageActionDescriptor) context.ActionDescriptor).ModelTypeInfo.GetCustomAttributes();
 
-      ISet<SanityCheckKind> failures = this._checker.Run(SanityCheckKind.IsPasswordSet);
+      ISet<SanityCheckKind> failures = this._checker.Run(SanityCheckKind.MainPasswordIsSet);
 
       if (failures.Count > 0 && attributes.All(a => a.GetType() != typeof(Ignore))) {
         this._nb.Add($"Sanity checks failed: {String.Join(", ", failures)}.");

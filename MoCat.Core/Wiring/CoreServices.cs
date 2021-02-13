@@ -1,6 +1,7 @@
 ﻿using System.IO.Abstractions;
 using LiteDB;
 using Microsoft.Extensions.DependencyInjection;
+using MoCat.Core.Components.Auth;
 using MoCat.Core.Components.Notices;
 using MoCat.Core.Components.SanityChecks;
 using MoCat.Core.Entities;
@@ -14,6 +15,10 @@ namespace MoCat.Core.Wiring {
       services.AddSingleton<IDbContext, DbContext>();
       services.AddSingleton<INoticeBoard, NoticeBoard>();
       services.AddSingleton<ISanityChecker, SanityChecker>();
+
+      services.AddScoped<IAuth, Auth>();
+
+      services.AddSingleton(_ => _.GetRequiredService<IDbContext>().UserConfig);
     }
   }
 }

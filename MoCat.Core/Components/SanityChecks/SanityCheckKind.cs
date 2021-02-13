@@ -6,6 +6,6 @@
     /// <summary>
     /// Check if the main application password has been set.
     /// </summary>
-    IsPasswordSet
+    MainPasswordIsSet
   }
 }

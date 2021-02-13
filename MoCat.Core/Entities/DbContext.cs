@@ -7,14 +7,13 @@ namespace MoCat.Core.Entities {
   /// Main access point for DB storage.
   /// </summary>
   public class DbContext : IDbContext {
-
-    private readonly ILiteDatabase _dbConnection;
+    public ILiteDatabase Db { get; init; }
     
-    public DbContext(ILiteDatabase dbConnection) {
-      this._dbConnection = dbConnection;
+    public DbContext(ILiteDatabase db) {
+      this.Db = db;
     }
 
-    public ILiteCollection<LedgerEntry> LedgerEntries => this._dbConnection.GetCollection<LedgerEntry>("ledger_entries");
-    public ILiteCollection<UserConfig> UserConfig => this._dbConnection.GetCollection<UserConfig>("user_config");
+    public ILiteCollection<LedgerEntry> LedgerEntries => this.Db.GetCollection<LedgerEntry>("ledger_entries");
+    public ILiteCollection<UserConfig> UserConfig => this.Db.GetCollection<UserConfig>("user_config");
   }
 }

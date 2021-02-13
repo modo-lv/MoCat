@@ -6,6 +6,11 @@
   <title>@(Model?.Title ?? "")</title>
 </head>
 <body>
+<header>
+  <partial name="_NoticeBoard"/>
+</header>
+<main>
   @RenderBody()
+</main>
 </body>
 </html>
