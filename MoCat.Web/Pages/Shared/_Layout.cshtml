@@ -8,6 +8,10 @@
 <body>
 <header>
   <partial name="_NoticeBoard"/>
+  <nav>
+    <a asp-page="Index">Home</a>
+    <a asp-page="Auth/Logout">Logout</a>
+  </nav>
 </header>
 <main>
   @RenderBody()

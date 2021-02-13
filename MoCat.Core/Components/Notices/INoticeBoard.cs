@@ -12,19 +12,22 @@ namespace MoCat.Core.Components.Notices {
     ICollection<Notice> Notices { get; protected set; }
 
     /// <summary>
-    /// Add a notice to the board.
+    /// Add a notices to the board.
     /// </summary>
-    /// <param name="notice">Notice to add.</param>
-    /// <returns>Notice that was added. If adding a persistent notice and one with the same name already exists on the
+    /// <param name="notices">Notices to add.</param>
+    /// <returns>Notices that were added. For persistent notices, if one with the same name already exists on the
     /// board, that will be returned instead.</returns>
-    Notice Add(Notice notice) {
-      Notice? exists = notice.Name.IsBlank()
-        ? null
-        : this.Notices.SingleOrDefault(_ => _.Name == notice.Name);
-      if (exists == null) {
-        this.Notices.Add(notice);
-      }
-      return exists ?? notice;
+    IEnumerable<Notice> Add(params Notice[] notices) {
+      return notices.Select(n => {
+        Notice? exists = n.Name.IsBlank()
+          ? null
+          : this.Notices.SingleOrDefault(_ => _.Name == n.Name);
+        if (exists == null) {
+          this.Notices.Add(n);
+        }
+
+        return exists ?? n;
+      });
     }
 
     /// <summary>
@@ -32,10 +35,10 @@ namespace MoCat.Core.Components.Notices {
     /// </summary>
     /// <param name="message">Message of the notice.</param>
     /// <returns>Added notice.</returns>
-    Notice Add(String message) {
-      return this.Add(new Notice(message));
+    IEnumerable<Notice> Add(params String[] message) {
+      return this.Add(message.Select(_ => new Notice(_)).ToArray());
     }
-    
+
     /// <summary>
     /// Remove (and return) all non-named notices from the board.
     /// Call this to show unread notices to the user and simultaneously remove them from the board. 

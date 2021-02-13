@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MoCat.Core.Components.Auth;
@@ -10,6 +11,7 @@ using MoCat.Web.Infrastructure;
 
 namespace MoCat.Web.Pages {
   [InitSanityCheckFilter.Ignore]
+  [AllowAnonymous]
   public class Init : PageModel, IPageWithTitle {
     public String Title => "Initial setup";
 
@@ -24,7 +26,7 @@ namespace MoCat.Web.Pages {
     }
 
     [BindProperty]
-    public String Password { get; set; }
+    public String Password { get; init; } = "";
 
     public IActionResult OnGet() {
       if (!this._check.Run(SanityChecks.Init).Any()) {

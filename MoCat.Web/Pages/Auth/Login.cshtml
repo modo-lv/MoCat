@@ -1,4 +1,9 @@
 ﻿@page
 @model MoCat.Web.Pages.Auth.Login
 
-Login
+<h2>Login</h2>
+<form method="post">
+  <label asp-for="Password">Password:</label>
+  <input type="password" asp-for="Password" />
+  <button type="submit">Login</button>
+</form>

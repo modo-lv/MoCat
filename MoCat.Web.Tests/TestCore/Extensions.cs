@@ -10,11 +10,11 @@ namespace MoCat.Web.Tests.TestCore {
     /// </summary>
     /// <param name="obj"></param>
     /// <returns></returns>
-    public static IEnumerable<KeyValuePair<String, String>> ToKeyValuePairs(this Object obj)
+    public static IEnumerable<KeyValuePair<String?, String?>> ToKeyValuePairs(this Object obj)
     {
       Type type = obj.GetType();
       PropertyInfo[] props = type.GetProperties();
-      return props.Select(p => new KeyValuePair<String, String>(p.Name, p.GetValue(obj)!.ToString()));
+      return props.Select(p => new KeyValuePair<String?, String?>(p.Name, p.GetValue(obj)?.ToString()));
     }
   }
 }
