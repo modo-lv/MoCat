@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MoCat.Core.Main {
+namespace MoCat.Core.Main.Owners {
   /// <summary>
   /// Asset owner.
   /// </summary>
@@ -9,7 +9,7 @@ namespace MoCat.Core.Main {
     /// Name of the owner, also used as ID.  
     /// </summary>
     public String Id { get; init; }
-    
+
     /// <summary>
     /// Inactive owners cannot be added to new transactions, but are still available in search, filtering etc.  
     /// </summary>

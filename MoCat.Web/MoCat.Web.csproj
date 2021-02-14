@@ -9,4 +9,8 @@
       <ProjectReference Include="..\MoCat.Core\MoCat.Core.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Pages\Owners" />
+    </ItemGroup>
+
 </Project>
