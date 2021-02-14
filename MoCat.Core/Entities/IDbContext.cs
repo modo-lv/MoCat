@@ -4,7 +4,7 @@ using MoCat.Core.Entities.Db;
 
 namespace MoCat.Core.Entities {
   public interface IDbContext {
-    ILiteDatabase Db { get; init; }
+    ILiteDatabase Db { get; }
     
     ILiteCollection<LedgerEntry> LedgerEntries { get; }
     

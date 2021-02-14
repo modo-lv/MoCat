@@ -1,6 +1,8 @@
 $default-border-radius: 5px;
 $main-spacing: 0.5rem;
-$main-outline: 0 0 0 1px #068;
+$main-outline-color: #068;
+$main-outline: 0 0 0 1px $main-outline-color;
+$menu-bg: rgba(#000, 0.25);
 
 body, table, input, select, textarea, button {
   font-family: "Trebuchet MS", "Open Sans", sans-serif;
@@ -9,4 +11,10 @@ body, table, input, select, textarea, button {
 
 input, button, select, textarea {
   border-radius: $default-border-radius;
+}
+
+div.row {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
 }

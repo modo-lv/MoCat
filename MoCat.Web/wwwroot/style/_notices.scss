@@ -1,0 +1,13 @@
+#NoticeBoard {
+  .notice {
+    padding: 0.25em;
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+    border-radius: $default-border-radius;
+    box-shadow: $main-outline;
+    & + .notice {
+      margin-top: 3px;
+    }
+  }
+}

@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MoCat.Core.Components.Auth;
 using MoCat.Core.Components.Notices;
-using MoCat.Core.Entities.Db;
 using MoCat.Web.Infrastructure;
 using Simpler.NetCore.Text;
 using Encryption = BCrypt.Net.BCrypt;
@@ -20,7 +19,7 @@ namespace MoCat.Web.Pages.Auth {
     private readonly IAuth _auth;
     private readonly INoticeBoard _notices;
 
-    public Login(UserConfig user, IAuth auth, INoticeBoard notices) {
+    public Login(IAuth auth, INoticeBoard notices) {
       this._auth = auth;
       this._notices = notices;
     }

@@ -2,16 +2,24 @@
 
 body {
   background: #2c96c6 url("/style/images/background.png");
-  display: flex;
-  flex-direction: row;
-  align-items: start;
   margin: $main-spacing;
+  display: grid;
+  grid-template-columns: max-content auto;
+  grid-template-rows: auto auto;
+  grid-column-gap: $main-spacing;
+  grid-row-gap: $main-spacing;
+  align-items: start;
+}
+
+header {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
 }
 
 main {
   border-radius: $default-border-radius;
   background: #dbdbdb;
-  margin-left: $main-spacing;
   border: 1px solid #efefef;
   box-shadow: $main-outline;
   padding: $main-spacing;

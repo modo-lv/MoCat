@@ -9,10 +9,10 @@ using Simpler.NetCore.Text;
  * From https://gist.github.com/DanElliott/32787b4ae1941780d70cb085d55f8b24
  */
 namespace MoCat.Web.TagHelpers {
-  [HtmlTargetElement(Attributes = "active-in-page")]
+  [HtmlTargetElement(Attributes = "active-in")]
   public class ActivePageTagHelper : TagHelper {
     /// <summary>Path to the Razor page in which this element should be <c>.active</c>.</summary>
-    [HtmlAttributeName("active-in-page")]
+    [HtmlAttributeName("asp-page")]
     public String? Page { get; set; }
 
     [HtmlAttributeNotBound]
@@ -27,14 +27,15 @@ namespace MoCat.Web.TagHelpers {
         MakeActive(output);
       }
 
-      output.Attributes.RemoveAll("active-in-page");
+      output.Attributes.RemoveAll("active-in");
     }
 
     private Boolean ShouldBeActive() {
       String currentPage = (this.ViewContext?.RouteData.Values["Page"]?.ToString()).Text();
 
       // ReSharper disable once SpecifyStringComparison
-      return String.IsNullOrWhiteSpace(this.Page) || this.Page.ToLower() == currentPage.ToLower();
+      return
+        this.Page.Text().Equals(currentPage, StringComparison.InvariantCultureIgnoreCase);
     }
 
     private static void MakeActive(TagHelperOutput output) {
@@ -43,14 +44,15 @@ namespace MoCat.Web.TagHelpers {
         classAttr = new TagHelperAttribute("class", "active");
         output.Attributes.Add(classAttr);
       }
-      else switch (classAttr.Value) {
-        case null:
-          output.Attributes.SetAttribute("class", "active");
-          break;
-        case String s:
-          output.Attributes.SetAttribute("class", s + " active");
-          break;
-      }
+      else
+        switch (classAttr.Value) {
+          case null:
+            output.Attributes.SetAttribute("class", "active");
+            break;
+          case String s:
+            output.Attributes.SetAttribute("class", s + " active");
+            break;
+        }
     }
   }
 }

@@ -15,4 +15,8 @@
       <PackageReference Include="System.IO.Abstractions" Version="13.2.10" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Main" />
+    </ItemGroup>
+
 </Project>

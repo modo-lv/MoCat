@@ -1,14 +1,13 @@
 ﻿@using MoCat.Core.Components.Notices
+@using Simpler.NetCore.Text
 @namespace MoCat.Web.Pages.Shared
 
 @inject INoticeBoard NoticeBoard
 
-@if (NoticeBoard.Notices.Any()) {
-  <div id="NoticeBoard">
-    @foreach (Notice n in NoticeBoard.RemoveAllTransient()) {
-      <div class="notice">
-        @n.Message
-      </div>
-    }
-  </div>
-}
+<div id="NoticeBoard">
+  @foreach (Notice n in NoticeBoard.RemoveAllTransient()) {
+    <div class="notice" data-autohide="@n.AutoHide" id="@(n.Name.NotBlank() ? $"Notice_{n.Name}" : null)">
+      @n.Message
+    </div>
+  }
+</div>

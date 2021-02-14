@@ -1,6 +1,6 @@
 @import "_globals.scss";
 
-header {
+nav {
   color: white;
 
   a {
@@ -8,37 +8,35 @@ header {
     text-decoration: none;
   }
 
-  & > nav {
-    background: rgba(#000, 0.25);
+  & > ul {
+    background: $menu-bg;
     border-radius: $default-border-radius;
     padding: 0.5em 0;
-    display: flex;
+    display: block;
+    margin: 0;
     flex-direction: column;
     box-shadow: $main-outline;
 
-    & + nav {
+    & + ul {
       margin-top: 0.25em;
     }
 
-    ul {
-      padding: 0;
-      display: block;
-      margin: 0;
+    li {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
 
-      li {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        a {
-          min-width: 10em;
-          padding: 0.5rem;
-          $color: #013156;
-          &.active {
-            background: linear-gradient(to top, rgba($color, 1) 0%, rgba($color, 0.5) 100%);
-          }
-          &:hover {
-            background: linear-gradient(to top, rgba($color, 0.5) 0%, rgba($color, 0.25) 100%);
-          }
+      a {
+        min-width: 10em;
+        padding: 0.5rem;
+        $color: #013156;
+
+        &.active {
+          background: linear-gradient(to top, rgba($color, 1) 0%, rgba($color, 0.5) 100%);
+        }
+
+        &:hover {
+          background: linear-gradient(to top, rgba($color, 0.5) 0%, rgba($color, 0.25) 100%);
         }
       }
     }

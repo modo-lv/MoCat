@@ -31,6 +31,12 @@ input, button, select, textarea {
   border-radius: 5px;
 }
 
+div.row {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+}
+
 body, table, input, select, textarea, button {
   font-family: "Trebuchet MS", "Open Sans", sans-serif;
   font-size: medium;
@@ -40,18 +46,32 @@ input, button, select, textarea {
   border-radius: 5px;
 }
 
-body {
-  background: #2c96c6 url("/style/images/background.png");
+div.row {
   display: flex;
   flex-direction: row;
   align-items: start;
+}
+
+body {
+  background: #2c96c6 url("/style/images/background.png");
   margin: 0.5rem;
+  display: grid;
+  grid-template-columns: max-content auto;
+  grid-template-rows: auto auto;
+  grid-column-gap: 0.5rem;
+  grid-row-gap: 0.5rem;
+  align-items: start;
+}
+
+header {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
 }
 
 main {
   border-radius: 5px;
   background: #dbdbdb;
-  margin-left: 0.5rem;
   border: 1px solid #efefef;
   box-shadow: 0 0 0 1px #068;
   padding: 0.5rem;
@@ -60,6 +80,18 @@ main > h2 {
   margin-top: 0;
 }
 
+#NoticeBoard .notice {
+  padding: 0.25em;
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  border-radius: 5px;
+  box-shadow: 0 0 0 1px #068;
+}
+#NoticeBoard .notice + .notice {
+  margin-top: 3px;
+}
+
 body, table, input, select, textarea, button {
   font-family: "Trebuchet MS", "Open Sans", sans-serif;
   font-size: medium;
@@ -69,42 +101,44 @@ input, button, select, textarea {
   border-radius: 5px;
 }
 
-header {
+div.row {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+}
+
+nav {
   color: white;
 }
-header a {
+nav a {
   color: white;
   text-decoration: none;
 }
-header > nav {
+nav > ul {
   background: rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   padding: 0.5em 0;
-  display: flex;
+  display: block;
+  margin: 0;
   flex-direction: column;
   box-shadow: 0 0 0 1px #068;
 }
-header > nav + nav {
+nav > ul + ul {
   margin-top: 0.25em;
 }
-header > nav ul {
-  padding: 0;
-  display: block;
-  margin: 0;
-}
-header > nav ul li {
+nav > ul li {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-header > nav ul li a {
+nav > ul li a {
   min-width: 10em;
   padding: 0.5rem;
 }
-header > nav ul li a.active {
+nav > ul li a.active {
   background: linear-gradient(to top, #013156 0%, rgba(1, 49, 86, 0.5) 100%);
 }
-header > nav ul li a:hover {
+nav > ul li a:hover {
   background: linear-gradient(to top, rgba(1, 49, 86, 0.5) 0%, rgba(1, 49, 86, 0.25) 100%);
 }
 

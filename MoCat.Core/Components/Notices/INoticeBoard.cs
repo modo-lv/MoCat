@@ -27,7 +27,7 @@ namespace MoCat.Core.Components.Notices {
         }
 
         return exists ?? n;
-      });
+      }).ToHashSet();
     }
 
     /// <summary>
