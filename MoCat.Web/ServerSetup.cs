@@ -53,6 +53,7 @@ namespace MoCat.Web {
       app.UseAuthorization();
       app.UseEndpoints(_ => {
         _.MapRazorPages();
+        _.MapDefaultControllerRoute();
         _.MapControllers();
       });
     }

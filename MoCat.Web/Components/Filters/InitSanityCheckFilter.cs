@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MoCat.Core.Components.Notices;
@@ -28,8 +29,13 @@ namespace MoCat.Web.Components.Filters {
     }
 
     public async Task OnResourceExecutionAsync(ResourceExecutingContext context, ResourceExecutionDelegate next) {
-      IEnumerable<Attribute> attributes =
-        ((CompiledPageActionDescriptor) context.ActionDescriptor).ModelTypeInfo.GetCustomAttributes();
+      IEnumerable<Attribute> attributes = context.ActionDescriptor switch {
+        CompiledPageActionDescriptor p => p.ModelTypeInfo.GetCustomAttributes(),
+        ControllerActionDescriptor c => c.ControllerTypeInfo.GetCustomAttributes(),
+        _ => throw new NotImplementedException(
+          $"Unknown controller type: {context.ActionDescriptor.GetType().Name}"
+        )
+      };
 
       ISet<SanityCheckKind> failures = this._checker.Run(SanityCheckKind.MainPasswordIsSet);
 

@@ -1,0 +1,7 @@
+﻿@model MoCat.Web.Main.Owners.OwnerInput
+
+<form method="post" asp-action="Save" asp-controller="Owners">
+  <label asp-for="Id">Name:</label><input type="text" asp-for="Id" />
+  <return-url/>
+  <button type="submit">Save</button>
+</form>

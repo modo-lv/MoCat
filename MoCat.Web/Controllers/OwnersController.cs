@@ -17,12 +17,14 @@ namespace MoCat.Web.Controllers {
     /// <summary>
     /// Add/update an owner.
     /// </summary>
-    /// <param name="id"><see cref="Owner.Id"/></param>
     /// <param name="owner"><see cref="OwnerInput"/></param>
-    [HttpPut("{id}")]
-    public IActionResult Save(String id, [FromForm] OwnerInput owner) {
+    [HttpPost]
+    public IActionResult Save([FromForm] OwnerInput owner) {
+      if (owner.Id == null)
+        throw new NullReferenceException($"{nameof(OwnerInput)}.{nameof(OwnerInput.Id)}");
+      
       this._db.Save(new Owner(
-        id: id,
+        id: owner.Id,
         isActive: owner.IsActive ?? true)
       );
       if (owner.Replace != null) {
