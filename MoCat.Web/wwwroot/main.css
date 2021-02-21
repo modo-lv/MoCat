@@ -22,6 +22,11 @@
   src: local(""), url("/style/fonts/open-sans-v18-latin-700italic.woff2") format("woff2"), url("/style/fonts/open-sans-v18-latin-700italic.woff") format("woff");
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body, table, input, select, textarea, button {
   font-family: "Trebuchet MS", "Open Sans", sans-serif;
   font-size: medium;
@@ -35,6 +40,11 @@ div.row {
   display: flex;
   flex-direction: row;
   align-items: start;
+}
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
 body, table, input, select, textarea, button {
@@ -92,6 +102,11 @@ main > h2 {
   margin-top: 3px;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body, table, input, select, textarea, button {
   font-family: "Trebuchet MS", "Open Sans", sans-serif;
   font-size: medium;
@@ -140,6 +155,32 @@ nav > ul li a.active {
 }
 nav > ul li a:hover {
   background: linear-gradient(to top, rgba(1, 49, 86, 0.5) 0%, rgba(1, 49, 86, 0.25) 100%);
+}
+
+#SubMenu {
+  display: inline-flex;
+  border-radius: 5px;
+  background-color: #47555e;
+  text-shadow: 1px 1px 1px #000;
+  padding: 0 0.5rem;
+  box-shadow: inset 0 2px 2px 0 #000;
+  border-bottom: 1px solid #FFF;
+  margin-bottom: calc(0.5rem * 2);
+}
+#SubMenu li {
+  display: block;
+  border-left: 1px solid #546168;
+  border-right: 1px solid #37444b;
+}
+#SubMenu li:first-of-type {
+  border-left: none;
+}
+#SubMenu li:last-of-type {
+  border-right: none;
+}
+#SubMenu li a {
+  display: block;
+  padding: calc(0.5rem / 2);
 }
 
 /*# sourceMappingURL=main.css.map */

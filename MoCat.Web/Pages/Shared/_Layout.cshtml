@@ -1,4 +1,5 @@
 ﻿@using MoCat.Core.Components.Auth
+@using Simpler.NetCore.Text
 @model MoCat.Web.Infrastructure.IPageWithTitle
 
 <!DOCTYPE html>
@@ -28,7 +29,7 @@
         <a active-in asp-page="/Index">Home</a>
       </li>
       <li>
-        <a active-in asp-page="/UserConfig">Settings</a>
+        <a active-in asp-page="/Settings/Owners">Settings</a>
       </li>
       <li>
         <a asp-page="/Auth/Logout">Logout</a>

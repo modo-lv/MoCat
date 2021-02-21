@@ -35,7 +35,8 @@ namespace MoCat.Web.TagHelpers {
 
       // ReSharper disable once SpecifyStringComparison
       return
-        this.Page.Text().Equals(currentPage, StringComparison.InvariantCultureIgnoreCase);
+        this.Page.Text().Equals(currentPage, StringComparison.InvariantCultureIgnoreCase) ||
+        currentPage.StartsWith(this.Page.Text() + "/");
     }
 
     private static void MakeActive(TagHelperOutput output) {
