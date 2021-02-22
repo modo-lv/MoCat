@@ -1,6 +1,35 @@
 ﻿@page
+@using MoCat.Core.Main.Owners
 @using Simpler.NetCore.Text
 @model MoCat.Web.Pages.Settings.Owners
 
 <partial name="_SubMenu"/>
+
 <h2>@Model?.Title.Text()</h2>
+
+<form method="post">
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Active?</th>
+    </tr>
+    @for (var a = 0; a < Model!.OwnerList.Count; a++) {
+      <tr>
+        <td>
+          <input type="text" asp-for="OwnerList[a].Id"/>
+        </td>
+        <td>
+          <input type="checkbox" asp-for="OwnerList[a].IsActive" />
+        </td>
+      </tr>
+    }
+    <tr>
+      <td colspan="2">
+        <label asp-for="NewOwner!.Id">Add new:</label>
+        <input type="text" asp-for="NewOwner!.Id"/>
+      </td>
+    </tr>
+  </table>
+  <button type="submit">Save changes</button>
+</form>
